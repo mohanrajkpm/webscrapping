@@ -77,3 +77,5 @@ gem 'pg'
 gem 'pry'
 gem 'rubocop-rails', require: false
 gem 'fast_jsonapi'
+gem 'whenever', require: false
+
