@@ -1166,7 +1166,7 @@ e. Order creation API
 
     It will create a new order with order_item and it will adjust an item quantity as well
 
-Create a Order
+Create an Order
 --------------
 
 Request URL
