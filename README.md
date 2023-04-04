@@ -1161,9 +1161,120 @@ Response
     }
 }
 
+e. Order creation API
+=====================
+
+    It will create a new order with order_item and it will adjust an item quantity as well
+
+Create a Order
+--------------
+
+Request URL
+-----------
+
+http://localhost:3000/api/v1/users/1/orders
+
+Method
+------
+POST
+
+Headers
+-------
+
+Accept: application/json
+Content-Type: application/json
+
+Request parameters
+------------------
 
 
-    
+{
+  "order": {
+    "order_items_attributes": [
+        {
+        "item_id": 753,
+        "quantity": 10
+        },
+        {
+            "item_id": 752,
+            "quantity": 5
+        }
+    ]
+  }
+}
+
+Response
+--------
+
+{
+    "id": 15,
+    "user_id": 1,
+    "total": "398.0",
+    "created_at": "2023-04-04T15:48:22.022Z",
+    "updated_at": "2023-04-04T15:48:22.022Z"
+}
+
+
+Changes in Item table
+---------------------
+
+       {
+            "id": "753",
+            "type": "item",
+            "attributes": {
+                "title": "Veg Cheese Dumpling Rice Bowl",
+                "price": 249,
+                "description": "Cheesy veg balls served with flavored rice and makhani sauce.",
+                "quantity": 80,
+                "category_name": "Rice Bowl",
+                "restaurant_name": "Chef Bakers"
+            }
+            ...
+            ...
+
+
+All Orders
+----------
+
+Request URL
+-----------
+
+http://localhost:3000/api/v1/users/1/orders
+
+Method
+------
+GET
+
+Response
+--------
+
+{
+    "data": [
+        {
+            "id": "15",
+            "type": "order",
+            "attributes": {
+                "total": "398.0"
+            },
+            "relationships": {
+                "items": {
+                    "data": [
+                        {
+                            "id": "752",
+                            "type": "item"
+                        },
+                        {
+                            "id": "753",
+                            "type": "item"
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}
+
+
 
 
 

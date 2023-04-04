@@ -3,7 +3,7 @@
 # item serialize object
 class ItemSerializer
   include FastJsonapi::ObjectSerializer
-  attributes :title, :price, :description
+  attributes :title, :price, :description, :quantity
 
   attributes :category_name do |obj|
     obj.category.name
